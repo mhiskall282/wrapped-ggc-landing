@@ -14,29 +14,44 @@ Landing site for the wrapped Ghana Gold Coin (wGGC) token, pegged 1:1 to gold mi
 - pnpm (preferred, lockfile included) `npm install -g pnpm`
 
 ## Setup
-1) Install dependencies
-```bash
-pnpm install
-pnpm approve-builds  # allow vetted packages to run postinstall scripts
+
+### First Time Setup
+```powershell
+.\setup.cmd
+```
+This installs dependencies and configures build scripts.
+
+### Development
+```powershell
+.\dev.cmd
+# Open http://localhost:3000
 ```
 
-2) Run locally
-```bash
-pnpm dev
-# http://localhost:3000
+### Add UI Components
+```powershell
+.\add-component.cmd button card badge
 ```
 
-3) Production build and start
-```bash
-pnpm build
-pnpm start
+### Production
+```powershell
+.\build.cmd   # Build for production
+.\start.cmd   # Start production server
 ```
 
-## Scripts
-- `pnpm dev`    - Start Next.js dev server.
-- `pnpm build`  - Create production build.
-- `pnpm start`  - Run the built app.
-- `pnpm lint`   - Lint the codebase.
+### Quick Commit
+```powershell
+.\commit.cmd "your commit message"
+# Then: git push
+```
+
+## Available Scripts
+- `.\setup.cmd` - Install dependencies and setup project
+- `.\dev.cmd` - Start Next.js dev server
+- `.\build.cmd` - Create production build
+- `.\start.cmd` - Run production server
+- `.\add-component.cmd <name>` - Add shadcn/ui components
+- `.\commit.cmd "message"` - Stage and commit changes
+- `pnpm lint` - Lint the codebase
 
 ## Project Structure
 - `app/page.tsx` - Landing page content.
